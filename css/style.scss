@@ -1,0 +1,446 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+    body{
+    font-size: 14px;
+    color: #787878; background: #f9fafb;
+    font-family: 'Gotham Pro Regular';
+    }
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr,
+    acronym, address, big, cite, code, del, dfn, em, img, ins, 
+    kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
+    b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label,
+    legend, table, caption, tbody, tfoot, thead, tr, th, td, article, 
+    aside, canvas, details, embed, figure, figcaption, footer, header, hgroup,
+    menu, .head-wrp, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    }
+    
+    html{
+        scroll-behavior: smooth;
+    }
+    
+    .container{
+        width: 1200px;
+        margin: 0 auto;
+    }
+    
+    h1,h2,h3,h4,h5,h6{
+        font-family:'Gotham Pro bold';
+        color:#2c3e50;
+    }
+    a,p{
+        font-family: 'Gotham Pro Regular';
+        color:#787878;
+    }
+
+    @import "mixin";
+
+    header{
+        position: absolute;
+        z-index: 4;
+        width: 100%;
+        text-align: center;
+        .logo{
+            text-align: center;
+            h2{
+                display: inline-block;
+                font-size: 4rem;
+                padding: 2.1rem 0 0;
+                font-weight: bold;
+                text-transform: capitalize;
+                color: #fff;
+                span{
+                    color: #FFC107;
+                }
+            }
+        }
+    }
+    //   .color{
+          
+    //   }
+    .banner_wrapper{
+        background: url(../image/banner3.jpg)no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 907px;
+        position: relative;
+        &::before{
+         content: '';
+         width: 100%;
+         height: 100%;
+         position: absolute;
+         background: #b5132aa1;
+         top: 0;
+         left: 0;
+        }
+        // meun--items---//
+        .menu-item_wrp{
+                position: absolute;
+                top: 15%;
+                left: 0;
+            .menu_items{
+                @include flex;
+                width: 90%;
+                margin: 0 auto;
+                .item_cmn01{
+                    width:30%;
+                    height: 340px;
+                    background: #fff;
+                    text-align: center;           
+                    margin: 1.1rem 1.5rem;
+                    padding: .5rem 1.5rem 0;
+                    border-radius: 5px;
+                    transition: $transition;
+                    position: relative;
+                    overflow: hidden;
+                    &:hover  .hrv_cnt {
+                      display: block;
+                    }
+                    .hrv_cnt {
+                        width: 100%;
+                        height: 340px;
+                        position: absolute;
+                        display: none;
+                        top: 0%;
+                        left: 0;
+                        z-index: 3;
+                        background: #0000008f;
+                        color: #fff;
+                        cursor: pointer;
+                        animation: PopupAnime .3s linear;
+                        .chil-hvr{
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            width: 100%;
+                            height: 340px;
+                            h5{
+                                color: #fff;
+                                font-size: 2rem;
+                                text-transform: capitalize;
+                            }
+                        }
+                    }
+                    a{
+                        padding: 1rem 2.5rem;
+                        margin: 1rem;
+                        border-radius: 5px;
+                        text-decoration: none;
+                        figure{
+                            width: 100%;
+                            height: 250px;
+                            overflow: hidden;
+                            transition:all .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+                            img{
+                                max-width: 100%;
+                                max-height: 250px;
+                                object-fit: contain;
+                                transition:  all .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+                            }
+                            &:hover{
+                                img{
+                                    transform: scale(1.1);
+                                    transition: all .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+                                }
+                            }
+                        }
+                        figcaption{
+                        h5{
+                            color: #FFC107;
+                            font-weight: bold;
+                            font-size: 1.6rem;
+                            padding: .9rem 0 0;
+                            text-shadow: 0 2px 0px #dcdcdc;
+                            text-transform: uppercase;
+                        }
+                        }
+                    }
+                    // anime---//
+                    &:before,
+                        &:after {
+                            content: "";
+                            display: block;
+                            position: absolute;
+                            left: 0; 
+                            background: $border-color;
+                            transition: $transition;
+                        }
+                        &:before {
+                            height: $border-width;
+                            width: 0;
+                            bottom: 0;
+                            box-shadow: 300px calc(-332px - 4px) $border-color;
+                        }
+                        &:after {
+                            top: 0;
+                            width: $border-width;
+                            height: 0;
+                            box-shadow: calc(454px  - 4px) 400px $border-color;
+                        }
+                        &:hover {
+                            &:after {
+                                height: 100%;
+                                box-shadow: calc(454px  - 4px) 0 $border-color;
+                            }
+                            &:before {
+                                width: 100%;
+                                box-shadow: 0 calc(-332px - 4px) $border-color;
+                            }
+                        }
+                  }
+              }
+         }
+
+
+        // ----popuuppp--item----for ------food--//
+        .Food_list_wrp{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top:0;
+            background: #0000005e;
+            z-index: 7;
+            animation: PopupAnime .4s linear;
+            display: none;
+            a.Close3 {
+                font-size: 1rem;
+                position: absolute;
+                right: 149px;
+                top: 111px;
+                color: #Fff;
+                background: #F44336;
+                text-decoration: none;
+                padding: .7rem 1rem;
+                border-radius: 50%;
+                transition: $transition;
+                z-index: 5;
+                &:hover{
+                    transition: $transition;
+                    background: #FFC107;
+                }
+                span{
+                    transition: $transition;
+                    &:hover{
+                        transition: $transition;
+                        transform: rotate(360deg);
+                    }
+                }
+            }
+        .food_item_list{
+             width: 80%;
+             height: 550px;
+             background: #fff;
+             margin: 8rem auto 0;
+             padding: 1rem 3rem 1rem;
+             box-shadow: 0 0 4px 1px #ffc60785;
+             position: relative;
+             overflow: hidden;
+             border-radius: 5px;
+            .child-food-items{
+              color: #2c3e50;
+              width: 100%!important;
+              margin: 0 1rem;
+              overflow: hidden;
+                .heading{
+                    padding: 1rem 0;
+                    width: 100%;
+                    text-align: center;
+                    h2{
+                        font-size: 2rem;
+                        color: #FFC107;
+                        text-transform: uppercase;
+                        padding-bottom: 10px;
+                        border-bottom: 2px solid #FFC107;
+                        display: inline-block;
+                    }
+                }
+                .Food_list01{
+                    padding: 2rem 0 0;
+                    width: 100%;
+                    .F_list1{
+                        width: 100%;
+                        margin: 1rem 0;
+                        h3{
+                            font-size: 1.5rem;
+                            text-transform: capitalize;
+                            font-weight: 400;
+                            color: #FFC107;
+                            padding: 0 0 1rem;
+                        }
+                        .Soup_list{
+                            @include flex;
+                            justify-content: space-between;
+                            width: 100%;
+                            .child-soup{
+                                @include flex;
+                                justify-content: space-between;
+                                align-items: initial!important;
+                                width: 85%;
+                                .fst01{
+                                    width: 35%;
+                                    position: relative;
+                                    padding: 1.1rem 0 0;
+                                    li{
+                                        &:before {
+                                            display: none!important;
+                                            content: '';
+                                            width: 400px;
+                                            height: 0px;
+                                            border: 1px dashed #99999963;
+                                            position: absolute;
+                                            display: block;
+                                            transform: translate(172px, 12px);
+                                        }
+                                    }
+                                }
+                                .fst02,.add_item{
+                                    width: 15%;
+                                    text-align: center;
+                                }
+                                .fst_cmn{
+                                    li{
+                                        list-style-type: none;
+                                        padding: .88rem 0;
+                                        text-transform: capitalize;
+                                    }
+                                    h4{
+                                        text-transform: capitalize;
+                                        font-size: 1.1rem;
+                                        padding: 0 0 .5rem;
+                                    }
+                                }
+                            }
+                            // ---total--item//
+                            .Total_item{
+                                width: 15%;
+                                @extend .add_item;
+                                h5{
+                                    font-size: 1rem;
+                                    margin-bottom: 6px;
+                                }  
+                                span{
+                                    background: #fff8f8;
+                                    padding: .4rem .1rem;
+                                    display: block;
+                                    margin: 1px 3rem;
+                                    border-radius: 5px;
+                                }
+                            }
+                            //---add--item--//
+                            .add_item{
+                                // width:25%;
+                                text-align: center;
+                                ul{
+                                    h4{
+                                        font-size: 1rem;
+                                        margin-bottom: 9px;
+                                    }
+                                    li{
+                                        display:block;
+                                        padding: .5rem 0;
+                                        .add_01 {
+                                            display: inline-block;
+                                            background: #fff8f8;
+                                            padding: .3rem .1rem;
+                                            /* display: flex; */
+                                            /* width: 80px; */
+                                            /* justify-content: center; */
+                                            /* color: #fff; */
+                                            /* border: 1px solid #000; */
+                                            border-radius: 5px;
+                                            b{
+                                                cursor: pointer;
+                                                font-size: 1.1rem;
+                                                color: #000000;
+                                                padding: 0 .7rem;
+                                                background: #fff;
+                                                border-radius: 5px;
+                                            }
+                                            #counter{
+                                                margin: 0 .5rem;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        
+                    }
+                    //----order---//
+                    .order-btn {
+                        margin: 0 1rem 0 0;
+                        padding: 1rem 1rem;
+                        border: 1px solid #9e9e9e4d;
+                        border-radius: 5px;
+                        @include flex;
+                        justify-content: space-between!important;
+                        .order-list{
+                            h3{
+                                font-size: 1.1rem;
+                                font-weight: 500;
+                                text-transform: capitalize;
+                            }
+                        }
+                        .order-list2{
+                            .a02{
+                                padding: .7rem 1.2rem;
+                                border: 1px solid #F44336;
+                                text-decoration: none;
+                                border-radius: 5px;
+                                background: #F44336 url(../image/blob.svg)repeat;
+                                background-size: cover;
+                                background-position-x: center;
+                                color: #fff;
+                                background-position-y: center;
+                                background-blend-mode: darken;
+                                transition: all .3s ease-in-out;
+                                &:hover {
+                                    border-radius: 100px;
+                                    box-shadow: 0 0 2px 1px #090909;
+                                    transition: all .3s ease-in-out;
+                                }
+                            }
+                            .a01{
+                                font-size: 1.2rem;
+                                text-transform: capitalize;
+                                color: #000000;
+                                margin: 0 10px 0 0;
+                                text-decoration: none;
+                                font-weight: bold;
+                                cursor: text;
+                            }
+                       }
+                    }
+                } 
+            }
+        }
+    }
+
+        @keyframes PopupAnime {
+            0%{
+                transform: scale(0.77);
+                transition: all .3s ease-in-out;
+            }
+            100%{
+                transform: scale(1);
+                transition: all .3s ease-in-out;
+            }
+        }
+        //---end---here
+    }
+
+
+
+//----media---query-----///
+
+@import 'media';
